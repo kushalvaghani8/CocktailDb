@@ -9,4 +9,6 @@ import UIKit
 
 class CocktailCell: UICollectionViewCell {
     
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
 }

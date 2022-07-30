@@ -6,27 +6,54 @@
 //
 
 import UIKit
-
+import SDWebImage
 class IntialViewController: UIViewController {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    var Cocktails: [String : AnyObject] = [:]
+    var CocktailList : [[String : AnyObject]] = [[:]]
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        Task{
+            do{
+                self.Cocktails = try await CocktailAPI_Helper.fetchCocktails()
+                //print(self.Cocktails["drinks"])
+                DispatchQueue.main.async {
+                self.CocktailList = self.Cocktails["drinks"] as! [[String : AnyObject]]
+                //print(self.Cocktails)
+                    self.collectionView.reloadData()
+                    
+                }
+                
+            } catch let err{
+                print("something went wrong: \(err)")
+            }
+        }
     }
-    
-
-
+    // Do any additional setup after loading the view.
 }
+
 
 extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if(CocktailList.count > 0)
+        {
+            return CocktailList.count
+        }
+        else{
+         return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CocktailCell", for: indexPath) as! CocktailCell
+        let imgURL = self.CocktailList[indexPath.row]["strDrinkThumb"]
+        as? String ?? ""
+        cell.imgView.sd_setImage(with: URL(string: imgURL), placeholderImage: UIImage())
+        cell.lblTitle.text = self.CocktailList[indexPath.row]["strDrink"]
+ as? String ?? ""
         return cell
     }
     
