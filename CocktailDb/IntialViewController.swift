@@ -11,9 +11,11 @@ class IntialViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var Cocktails: [String : AnyObject] = [:]
+   
     var CocktailList : [[String : AnyObject]] = [[:]]
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         Task{
             do{
@@ -51,10 +53,16 @@ extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CocktailCell", for: indexPath) as! CocktailCell
         let imgURL = self.CocktailList[indexPath.row]["strDrinkThumb"]
         as? String ?? ""
-        cell.imgView.sd_setImage(with: URL(string: imgURL), placeholderImage: UIImage())
-        cell.lblTitle.text = self.CocktailList[indexPath.row]["strDrink"]
+        cell.drinkImageView.sd_setImage(with: URL(string: imgURL), placeholderImage: UIImage())
+        cell.drinkNamelbl.text = self.CocktailList[indexPath.row]["strDrink"]
  as? String ?? ""
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailDetailsTableViewController") as! CocktailDetailsTableViewController
+        vc.detail = CocktailList[indexPath.row]
+        navigationController!.pushViewController(vc, animated: true)
     }
     
     
