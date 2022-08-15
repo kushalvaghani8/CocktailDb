@@ -100,6 +100,11 @@ class IntialViewController: UIViewController {
         super.viewDidLoad()
         self.setUpView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
+    }
 }
 
 

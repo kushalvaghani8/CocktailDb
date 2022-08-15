@@ -78,6 +78,32 @@ extension FavoriteCocktailViewController : UITableViewDelegate, UITableViewDataS
         } else {
             cell.drinkImageView.image = nil
         }
+        cell.drinkFavBtn.isSelected = data.fav
+        cell.drinkFavBtn.tag = indexPath.row
+        cell.drinkFavBtn.addTarget(self, action: #selector(self.btnFavTapped(_:)), for: .touchUpInside)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = self.cocktailArray[indexPath.row]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailDetailsTableViewController") as! CocktailDetailsTableViewController
+        vc.detail = data
+        vc.title = data.name
+        navigationController!.pushViewController(vc, animated: true)
+    }
+    
+    //UIButton Action Method
+    @objc func btnFavTapped(_ sender: UIButton) { //if fav button is tapped
+        
+        let data = self.cocktailArray[sender.tag] //saving it as not fav. to database
+        data.fav = false
+        
+        AppDelegate.shared.saveContext()
+        self.cocktailArray.remove(at: sender.tag) //if already fav
+        
+        DispatchQueue.main.async {
+            self.favTbl.reloadData()
+        }
     }
 }
