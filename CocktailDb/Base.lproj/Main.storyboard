@@ -70,6 +70,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="drinkFavBtn" destination="nfr-sP-30F" id="rJD-5s-Ca7"/>
                                             <outlet property="drinkImageView" destination="Qda-iG-WbO" id="aHH-Jf-TyV"/>
                                             <outlet property="drinkNamelbl" destination="zdn-Cq-8K3" id="g1X-lY-DZf"/>
                                         </connections>

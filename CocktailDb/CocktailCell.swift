@@ -11,6 +11,6 @@ class CocktailCell: UICollectionViewCell {
     
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var drinkNamelbl: UILabel!
-    
+    @IBOutlet weak var drinkFavBtn: UIButton!
     
 }

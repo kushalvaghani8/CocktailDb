@@ -14,6 +14,7 @@ class CocktailModel : NSObject { //created model for data
     var id : String!
     var name : String!
     var image : String!
+    var fav : Bool = false
 
    
     init(fromJson json: [String: Any]){
@@ -120,6 +121,11 @@ extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSou
             cell.drinkImageView.image = nil
         }
         
+        cell.drinkFavBtn.isSelected = data.fav
+        cell.drinkFavBtn.tag = indexPath.row //giving tag for fav 
+        cell.drinkFavBtn.addTarget(self, action: #selector(self.btnFavTapped(_:)), for: .touchUpInside)
+        
+        
         return cell
     }
     
@@ -132,4 +138,15 @@ extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSou
         vc.title = data.name
         navigationController!.pushViewController(vc, animated: true)
     }
+    
+    //UIButton Action Method for fav button
+    @objc func btnFavTapped(_ sender: UIButton) {
+        
+        sender.isSelected.toggle() //toogle for fav
+        let data = self.cocktailArray[sender.tag] //giving it to specific drink
+        data.fav = sender.isSelected
+        
+        AppDelegate.shared.saveContext() //saving fav to database
+    }
+    
 }
