@@ -88,8 +88,8 @@ class IntialViewController: UIViewController {
         let fetchRequest = NSFetchRequest<Cocktail>(entityName: "Cocktail")
         
         do {
-            let users = try managedContext.fetch(fetchRequest)
-            return users
+            let cocktails = try managedContext.fetch(fetchRequest)
+            return cocktails
         } catch let error as NSError {
             print("was not able to get any data" + error.description)
         }

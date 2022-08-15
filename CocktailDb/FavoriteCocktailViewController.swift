@@ -30,7 +30,22 @@ class FavoriteCocktailViewController: UIViewController {
         
         self.favTbl.delegate = self
         self.favTbl.dataSource = self
+        self.cocktailArray = self.fetchFavCocktailDataFromCoreData()
       
+    }
+    
+    func fetchFavCocktailDataFromCoreData() -> [Cocktail] {
+        let managedContext = AppDelegate.shared.persistentContainer.viewContext //
+        
+        let fetchRequest = NSFetchRequest<Cocktail>(entityName: "Cocktail")
+        fetchRequest.predicate = NSPredicate(format: "fav == %@", NSNumber(value: true)) //getting data only if its a fav in the database
+        do {
+            let cocktails = try managedContext.fetch(fetchRequest)
+            return cocktails
+        } catch let error as NSError {
+            print("was not able to get any data" + error.description)
+        }
+        return []
     }
 
     override func viewDidLoad() {
