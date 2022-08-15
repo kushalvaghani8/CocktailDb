@@ -8,8 +8,8 @@
 import UIKit
 
 class CocktailDetailsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource  {
-    var detail = [String: AnyObject]()
     
+    var detail: Cocktail?
     
     @IBOutlet weak var drinkNamelbl: UILabel!
     
@@ -20,17 +20,15 @@ class CocktailDetailsTableViewController: UIViewController, UITableViewDelegate,
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title =  detail["strDrink"]  as? String
-           //  drinkNamelbl.text = detail["strDrink"]  as! String
+          
         Task{
             do{
-                self.cocktailDetail = try await CocktailDetail_Helper.fetchCocktailDetails(id: detail["idDrink"] as? String ?? "")
-               // print(self.cocktailDetail["drinks"])
+                self.cocktailDetail = try await CocktailDetail_Helper.fetchCocktailDetails(id: detail?.id ?? "")
+              
                 DispatchQueue.main.async { [self] in
                 
                self.cocktailInfo = self.cocktailDetail["drinks"] as! [[String : AnyObject]]
-                //print(self.Cocktails)
-                 //   self.collectionView.reloadData()
+             
                    
                     if(self.cocktailInfo[0]["strIngredient1"] as? String != nil)
                     {

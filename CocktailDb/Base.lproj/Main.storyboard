@@ -70,7 +70,6 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="drinkFavBtn" destination="nfr-sP-30F" id="hZH-Cj-YWv"/>
                                             <outlet property="drinkImageView" destination="Qda-iG-WbO" id="aHH-Jf-TyV"/>
                                             <outlet property="drinkNamelbl" destination="zdn-Cq-8K3" id="g1X-lY-DZf"/>
                                         </connections>
@@ -337,8 +336,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fCO-Gk-Fja" kind="relationship" relationship="viewControllers" id="GpD-K2-3JU"/>
-                        <segue destination="o0f-6y-e0a" kind="relationship" relationship="viewControllers" id="zQc-1R-Vf1"/>
+                        <segue destination="o0f-6y-e0a" kind="relationship" relationship="viewControllers" id="SOF-zb-ZDO"/>
+                        <segue destination="fCO-Gk-Fja" kind="relationship" relationship="viewControllers" id="9eB-sJ-KIA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOo-5S-Qa5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
