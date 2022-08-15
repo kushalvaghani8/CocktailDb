@@ -18,6 +18,7 @@
 		F050B4DD2895A92700C85C56 /* CocktailDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050B4DC2895A92700C85C56 /* CocktailDetailsTableViewController.swift */; };
 		F050B4DF2895B1B100C85C56 /* DrinkDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050B4DE2895B1B100C85C56 /* DrinkDetailsTableViewCell.swift */; };
 		F050B4E12895B1F400C85C56 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050B4E02895B1F400C85C56 /* IngredientsTableViewCell.swift */; };
+		F0AE9EE628A764E100975C9E /* Cocktails.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0AE9EE428A764E100975C9E /* Cocktails.xcdatamodeld */; };
 		F2C49EFD1F18930F837A8926 /* Pods_CocktailDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AAD193213BFEA647B8F021 /* Pods_CocktailDb.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		F050B4DC2895A92700C85C56 /* CocktailDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailsTableViewController.swift; sourceTree = "<group>"; };
 		F050B4DE2895B1B100C85C56 /* DrinkDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		F050B4E02895B1F400C85C56 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
+		F0AE9EE528A764E100975C9E /* Cocktails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cocktails.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				F050B4C9289595E800C85C56 /* Assets.xcassets */,
 				F050B4CB289595E800C85C56 /* LaunchScreen.storyboard */,
 				F050B4CE289595E800C85C56 /* Info.plist */,
+				F0AE9EE428A764E100975C9E /* Cocktails.xcdatamodeld */,
 			);
 			path = CocktailDb;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F050B4E12895B1F400C85C56 /* IngredientsTableViewCell.swift in Sources */,
+				F0AE9EE628A764E100975C9E /* Cocktails.xcdatamodeld in Sources */,
 				F050B4DB28959C2400C85C56 /* CocktailAPI_Helper.swift in Sources */,
 				F050B4D9289599CF00C85C56 /* IntialViewController.swift in Sources */,
 				F050B4C1289595E400C85C56 /* AppDelegate.swift in Sources */,
@@ -446,6 +450,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F0AE9EE428A764E100975C9E /* Cocktails.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F0AE9EE528A764E100975C9E /* Cocktails.xcdatamodel */,
+			);
+			currentVersion = F0AE9EE528A764E100975C9E /* Cocktails.xcdatamodel */;
+			path = Cocktails.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F050B4B5289595E400C85C56 /* Project object */;
 }
