@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="1942.0289855072465" y="105.80357142857143"/>
         </scene>
-        <!--Favorite-->
+        <!--Favourite-->
         <scene sceneID="vNY-r7-5zE">
             <objects>
-                <viewController id="tM0-5T-kJ3" customClass="FavoriteCocktailViewController" customModule="CocktailDb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tM0-5T-kJ3" customClass="FavouriteCocktailViewController" customModule="CocktailDb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dGX-sX-gpH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCockailTableViewCell" rowHeight="95" translatesAutoresizingMaskIntoConstraints="NO" id="LY2-Iz-1lA" customClass="FavoriteCockailTableViewCell" customModule="CocktailDb" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteCockailTableViewCell" rowHeight="95" translatesAutoresizingMaskIntoConstraints="NO" id="LY2-Iz-1lA" customClass="FavouriteCockailTableViewCell" customModule="CocktailDb" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LY2-Iz-1lA" id="MdO-Sd-VlJ">
@@ -168,7 +168,7 @@
                             <constraint firstItem="Whk-0T-uAk" firstAttribute="leading" secondItem="M2p-35-6v5" secondAttribute="leading" id="b11-5P-opT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorite" id="dcs-3X-sIL"/>
+                    <navigationItem key="navigationItem" title="Favourite" id="dcs-3X-sIL"/>
                     <connections>
                         <outlet property="favTbl" destination="Whk-0T-uAk" id="LCC-y3-vYH"/>
                     </connections>
@@ -236,7 +236,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnM-kl-A3g">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -337,19 +337,19 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="o0f-6y-e0a" kind="relationship" relationship="viewControllers" id="SOF-zb-ZDO"/>
-                        <segue destination="fCO-Gk-Fja" kind="relationship" relationship="viewControllers" id="9eB-sJ-KIA"/>
+                        <segue destination="fCO-Gk-Fja" kind="relationship" relationship="viewControllers" id="rkI-Ng-DZN"/>
+                        <segue destination="o0f-6y-e0a" kind="relationship" relationship="viewControllers" id="Ayz-Zl-1GK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOo-5S-Qa5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="105.80357142857143"/>
         </scene>
-        <!--Favorite-->
+        <!--Favourite-->
         <scene sceneID="4VN-8j-fax">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCO-Gk-Fja" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" image="star" catalog="system" id="7wD-Xm-6nY"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="star" catalog="system" id="7wD-Xm-6nY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OUJ-JQ-j6L">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -367,8 +367,8 @@
     </scenes>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star" width="21.5" height="22"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="starfill" width="21.5" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

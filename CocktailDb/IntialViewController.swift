@@ -36,6 +36,7 @@ class IntialViewController: UIViewController {
     
     var cocktailModelArray: [CocktailModel] = []
     var cocktailArray: [Cocktail] = []
+    var lastClick: Double = 0.0
     
     
     func setUpView() {
@@ -130,6 +131,11 @@ extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSou
         cell.drinkFavBtn.tag = indexPath.row //giving tag for fav 
         cell.drinkFavBtn.addTarget(self, action: #selector(self.btnFavTapped(_:)), for: .touchUpInside)
         
+        //adding tap gesture to the cell
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.drinkImageTappAction(_:)))
+        cell.drinkImageView.addGestureRecognizer(tapGesture)
+        cell.drinkImageView.isUserInteractionEnabled = true
+        cell.drinkImageView.tag = indexPath.row
         
         return cell
     }
@@ -152,6 +158,40 @@ extension IntialViewController: UICollectionViewDelegate,UICollectionViewDataSou
         data.fav = sender.isSelected
         
         AppDelegate.shared.saveContext() //saving fav to database
+    }
+    
+    @objc func drinkImageTappAction(_ sender: UITapGestureRecognizer) {
+        
+        let current = Date().timeIntervalSince1970 * 1000 //getting current time
+        if (current - lastClick) < 500 { //if the click is below .5 seconds
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.openDetailScreen(_:)), object: sender) //user first click will be cancelled
+            
+            if let index = sender.view?.tag { //if the user last click is cancelled it will be a double tap on the image
+                let data = self.cocktailArray[index]
+                data.fav = !data.fav //if it's a double tap, drink will be added to fav.
+                AppDelegate.shared.saveContext() //adding it to fav in data base
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        } else {
+            self.perform(#selector(self.openDetailScreen(_:)), with: sender, afterDelay: 0.4) //else if it's not a double tap the user will be taken to the detail screen.
+        }
+        
+        lastClick = current
+    }
+    
+    @objc func openDetailScreen(_ sender: UITapGestureRecognizer) {
+        if let index = sender.view?.tag { //getting index - tag from the database, taking user to the selected drink detail view
+            let data = self.cocktailArray[index]
+            let vc = storyboard?.instantiateViewController(withIdentifier: "CocktailDetailsTableViewController") as! CocktailDetailsTableViewController
+            vc.detail = data
+            vc.title = data.name
+            DispatchQueue.main.async {
+                self.navigationController!.pushViewController(vc, animated: true)
+            }
+        }
     }
     
 }

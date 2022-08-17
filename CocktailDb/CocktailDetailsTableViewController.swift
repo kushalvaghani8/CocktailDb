@@ -93,7 +93,7 @@ class CocktailDetailsTableViewController: UIViewController, UITableViewDelegate,
          let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkDetailsTableViewCell", for: indexPath) as! DrinkDetailsTableViewCell
 
         // Configure the cell...
-             cell.lblInstruction.text = "Instrucitons"
+             cell.lblInstruction.text = "Instruction"
          cell.lblInstructionsDetail.text = self.cocktailInfo[0]["strInstructions"] as? String ?? ""
         return cell
          }

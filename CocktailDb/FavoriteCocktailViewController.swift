@@ -1,14 +1,14 @@
 //
-//  FavoriteCocktailViewController.swift
+//  FavouriteCocktailViewController.swift
 //  CocktailDb
 //
-//  Created by hyperlink on 13/08/22.
+//  Created by Kushal Vaghani on 30/07/2022.
 //
 
 import UIKit
 import CoreData
 
-class FavoriteCockailTableViewCell: UITableViewCell {
+class FavouriteCockailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var drinkNamelbl: UILabel!
     @IBOutlet weak var drinkImageView: UIImageView!
@@ -20,7 +20,7 @@ class FavoriteCockailTableViewCell: UITableViewCell {
     }
 }
 
-class FavoriteCocktailViewController: UIViewController {
+class FavouriteCocktailViewController: UIViewController {
 
     @IBOutlet weak var favTbl: UITableView!
     
@@ -61,13 +61,13 @@ class FavoriteCocktailViewController: UIViewController {
 }
 
 
-extension FavoriteCocktailViewController : UITableViewDelegate, UITableViewDataSource {
+extension FavouriteCocktailViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cocktailArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCockailTableViewCell", for: indexPath) as! FavoriteCockailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteCockailTableViewCell", for: indexPath) as! FavouriteCockailTableViewCell
         cell.selectionStyle = .none
         
         let data = self.cocktailArray[indexPath.row]
@@ -96,7 +96,7 @@ extension FavoriteCocktailViewController : UITableViewDelegate, UITableViewDataS
     //UIButton Action Method
     @objc func btnFavTapped(_ sender: UIButton) { //if fav button is tapped
         
-        let data = self.cocktailArray[sender.tag] //saving it as not fav. to database
+        let data = self.cocktailArray[sender.tag]
         data.fav = false
         
         AppDelegate.shared.saveContext()
